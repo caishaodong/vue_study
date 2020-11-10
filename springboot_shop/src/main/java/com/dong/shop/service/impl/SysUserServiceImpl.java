@@ -1,8 +1,8 @@
 package com.dong.shop.service.impl;
 
-import com.dong.shop.domain.entity.User;
-import com.dong.shop.mapper.UserMapper;
-import com.dong.shop.service.UserService;
+import com.dong.shop.domain.entity.SysUser;
+import com.dong.shop.mapper.SysUserMapper;
+import com.dong.shop.service.SysUserService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +15,6 @@ import org.springframework.stereotype.Service;
  * @since 2020-11-10
  */
 @Service
-public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements UserService {
+public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> implements SysUserService {
 
 }

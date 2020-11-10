@@ -1,6 +1,6 @@
 package com.dong.shop.service;
 
-import com.dong.shop.domain.entity.User;
+import com.dong.shop.domain.entity.SysUser;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
@@ -11,6 +11,6 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @author caishaodong
  * @since 2020-11-10
  */
-public interface UserService extends IService<User> {
+public interface SysUserService extends IService<SysUser> {
 
 }

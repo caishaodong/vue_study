@@ -6,7 +6,7 @@ import com.auth0.jwt.exceptions.TokenExpiredException;
 import com.auth0.jwt.interfaces.Claim;
 import com.auth0.jwt.interfaces.DecodedJWT;
 import com.auth0.jwt.interfaces.JWTVerifier;
-import com.dong.shop.entity.User;
+import com.dong.shop.domain.entity.User;
 import com.dong.shop.global.constant.Constant;
 import com.dong.shop.global.util.string.StringUtil;
 import org.slf4j.Logger;
@@ -58,7 +58,6 @@ public class JwtUtil {
                 .withHeader(map)
                 // 可以将基本信息放到claims中
                 .withClaim(Constant.USER_ID, user.getId())
-                .withClaim(Constant.USER_NAME, user.getUserName())
                 .withClaim(Constant.NAME, user.getName())
                 // 超时设置,设置过期的日期
                 .withExpiresAt(expireDate)
@@ -138,9 +137,6 @@ public class JwtUtil {
                 case Constant.NAME:
                     user.setName(claim.asString());
                     break;
-                case Constant.USER_NAME:
-                    user.setUserName(claim.asString());
-                    break;
                 case "exp":
                 case "iat":
                     System.out.println(new SimpleDateFormat("yyyyMMddHHmmss").format(claim.asDate()));
@@ -154,7 +150,6 @@ public class JwtUtil {
     public static void main(String[] args) {
         User user = new User();
         user.setId(1L);
-        user.setUserName("张三");
         user.setName("");
         String token = createToken(user);
         token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiIiwidXNlck5hbWUiOiLlvKDkuIkiLCJleHAiOjE2MDA0MjAzNjgsInVzZXJJZCI6MSwiaWF0IjoxNjAwNDIwMzYzfQ.nkXZllfe75EyRemmKVYFLdX4eRTlqp-2r-Q2IV9oHjE";

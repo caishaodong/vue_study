@@ -1,6 +1,6 @@
 package com.dong.shop.controller;
 
-import com.dong.shop.entity.User;
+import com.dong.shop.domain.entity.User;
 import com.dong.shop.global.ResponseResult;
 import com.dong.shop.global.base.BaseController;
 import com.dong.shop.global.config.aop.limiter.ApiRateLimiter;
@@ -34,7 +34,6 @@ public class LoginController extends BaseController {
         request.getSession().setAttribute(Constant.USER_ID, 0L);
         User user = new User();
         user.setId(1L);
-        user.setUserName("张三");
         user.setName("");
         String token = JwtUtil.createToken(user);
         return success(token);
