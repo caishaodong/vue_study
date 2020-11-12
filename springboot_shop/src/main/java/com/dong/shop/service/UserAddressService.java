@@ -1,16 +1,16 @@
 package com.dong.shop.service;
 
-import com.dong.shop.domain.entity.SysUser;
+import com.dong.shop.domain.entity.UserAddress;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
  * <p>
- * 系统用户表 服务类
+ * 用户收货地址表 服务类
  * </p>
  *
  * @author caishaodong
  * @since 2020-11-12
  */
-public interface SysUserService extends IService<SysUser> {
+public interface UserAddressService extends IService<UserAddress> {
 
 }

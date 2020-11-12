@@ -1,6 +1,6 @@
 package com.dong.shop.service;
 
-import com.dong.shop.domain.entity.User;
+import com.dong.shop.domain.entity.UserInfo;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
@@ -9,8 +9,8 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * </p>
  *
  * @author caishaodong
- * @since 2020-11-10
+ * @since 2020-11-12
  */
-public interface UserService extends IService<User> {
+public interface UserInfoService extends IService<UserInfo> {
 
 }

@@ -12,7 +12,7 @@ import lombok.experimental.Accessors;
 
 /**
  * <p>
- * 系统用户表
+ * 用户表
  * </p>
  *
  * @author caishaodong
@@ -21,8 +21,8 @@ import lombok.experimental.Accessors;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-@TableName("c_sys_user")
-public class SysUser extends Model<SysUser> {
+@TableName("c_user_info")
+public class UserInfo extends Model<UserInfo> {
 
     private static final long serialVersionUID = 1L;
 
@@ -50,9 +50,14 @@ public class SysUser extends Model<SysUser> {
     private String mobile;
 
     /**
-     * 邮箱
+     * 性别（0：未知，1：男，2：女）
      */
-    private String email;
+    private Boolean sex;
+
+    /**
+     * 状态（1：正常，2：冻结，3：注销）
+     */
+    private Boolean status;
 
     /**
      * 是否删除（0：未删除，1：删除）

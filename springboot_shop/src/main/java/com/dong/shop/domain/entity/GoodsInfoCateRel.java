@@ -1,5 +1,6 @@
 package com.dong.shop.domain.entity;
 
+import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
 import com.baomidou.mybatisplus.annotation.TableId;
@@ -11,16 +12,17 @@ import lombok.experimental.Accessors;
 
 /**
  * <p>
- * 用户表
+ * 商品和类目关联表
  * </p>
  *
  * @author caishaodong
- * @since 2020-11-10
+ * @since 2020-11-12
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-public class User extends Model<User> {
+@TableName("c_goods_info_cate_rel")
+public class GoodsInfoCateRel extends Model<GoodsInfoCateRel> {
 
     private static final long serialVersionUID = 1L;
 
@@ -28,42 +30,17 @@ public class User extends Model<User> {
     private Long id;
 
     /**
-     * 姓名
+     * 商品id
      */
-    private String name;
+    private Long goodsId;
 
     /**
-     * 手机号
+     * 商品类目id
      */
-    private String mobile;
+    private Long goodsCateId;
 
     /**
-     * 邮箱
-     */
-    private String email;
-
-    /**
-     * 密码
-     */
-    private String password;
-
-    /**
-     * 年龄
-     */
-    private Integer age;
-
-    /**
-     * 住址
-     */
-    private String address;
-
-    /**
-     * 状态（0：正常，1：注销，2：冻结）
-     */
-    private Boolean status;
-
-    /**
-     * 是否删除（0：正常，1：删除）
+     * 是否删除（0：未删除，1：删除）
      */
     private Boolean isDeleted;
 

@@ -20,7 +20,8 @@ import java.util.List;
  **/
 public class MysqlGenerator {
 
-    private static final String TABLE_NAME = "user";
+    private static final String[] TABLE_NAME = {"c_goods_attr", "c_goods_cate", "c_goods_info", "c_goods_info_cate_rel", "c_order_detail_info",
+    "c_order_info", "c_order_logistics_info", "c_sys_menu", "c_sys_role", "c_sys_role_menu_rel", "c_sys_user_role_rel", "c_user_address"};
 
     public static void main(String[] args) {
         // 代码生成器
@@ -52,7 +53,7 @@ public class MysqlGenerator {
 
         // 数据源配置
         DataSourceConfig dsc = new DataSourceConfig();
-        dsc.setUrl("jdbc:mysql://127.0.0.1:3306/test?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8&useSSL=true");
+        dsc.setUrl("jdbc:mysql://127.0.0.1:3306/shop?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8&useSSL=true");
         dsc.setDriverName("com.mysql.cj.jdbc.Driver");
         dsc.setUsername("root");
         dsc.setPassword("root");
@@ -106,6 +107,9 @@ public class MysqlGenerator {
 
         // 设置逻辑删除键
         strategy.setLogicDeleteFieldName("isDeleted");
+
+        // 去除表名前缀
+        strategy.setTablePrefix(TABLE_NAME[0].substring(0, TABLE_NAME[0].indexOf("_") + 1));
 
         // 指定生成的bean的数据库表名
         strategy.setInclude(TABLE_NAME);

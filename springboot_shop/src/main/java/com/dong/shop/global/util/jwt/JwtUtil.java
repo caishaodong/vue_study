@@ -6,7 +6,7 @@ import com.auth0.jwt.exceptions.TokenExpiredException;
 import com.auth0.jwt.interfaces.Claim;
 import com.auth0.jwt.interfaces.DecodedJWT;
 import com.auth0.jwt.interfaces.JWTVerifier;
-import com.dong.shop.domain.entity.User;
+import com.dong.shop.domain.entity.UserInfo;
 import com.dong.shop.global.constant.Constant;
 import com.dong.shop.global.util.string.StringUtil;
 import org.slf4j.Logger;
@@ -42,10 +42,10 @@ public class JwtUtil {
     /**
      * 生成token
      *
-     * @param user
+     * @param userInfo
      * @return
      */
-    public static String createToken(User user) {
+    public static String createToken(UserInfo userInfo) {
         //过期时间
         Date expireDate = new Date(System.currentTimeMillis() + EXPIRATION * 1000);
         Map<String, Object> map = new HashMap<>();
@@ -57,8 +57,8 @@ public class JwtUtil {
                 // 添加头部
                 .withHeader(map)
                 // 可以将基本信息放到claims中
-                .withClaim(Constant.USER_ID, user.getId())
-                .withClaim(Constant.NAME, user.getName())
+                .withClaim(Constant.USER_ID, userInfo.getId())
+                .withClaim(Constant.USER_NAME, userInfo.getUsername())
                 // 超时设置,设置过期的日期
                 .withExpiresAt(expireDate)
                 // 签发时间
@@ -109,7 +109,7 @@ public class JwtUtil {
      * @param token
      * @return
      */
-    public static User getUserByToken(String token) {
+    public static UserInfo getUserInfoByToken(String token) {
         if (StringUtil.isBlank(token)) {
             return null;
         }
@@ -123,19 +123,19 @@ public class JwtUtil {
      * @param claimMap
      * @return
      */
-    public static User getUserByClaimMap(Map<String, Claim> claimMap) {
+    public static UserInfo getUserByClaimMap(Map<String, Claim> claimMap) {
         if (Objects.isNull(claimMap)) {
             return null;
         }
-        User user = new User();
+        UserInfo userInfo = new UserInfo();
         for (String key : claimMap.keySet()) {
             Claim claim = claimMap.get(key);
             switch (key) {
                 case Constant.USER_ID:
-                    user.setId(claim.asLong());
+                    userInfo.setId(claim.asLong());
                     break;
-                case Constant.NAME:
-                    user.setName(claim.asString());
+                case Constant.USER_NAME:
+                    userInfo.setUsername(claim.asString());
                     break;
                 case "exp":
                 case "iat":
@@ -144,18 +144,18 @@ public class JwtUtil {
             }
         }
 
-        return user;
+        return userInfo;
     }
 
     public static void main(String[] args) {
-        User user = new User();
-        user.setId(1L);
-        user.setName("");
-        String token = createToken(user);
+        UserInfo userInfo = new UserInfo();
+        userInfo.setId(1L);
+        userInfo.setUsername("");
+        String token = createToken(userInfo);
         token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiIiwidXNlck5hbWUiOiLlvKDkuIkiLCJleHAiOjE2MDA0MjAzNjgsInVzZXJJZCI6MSwiaWF0IjoxNjAwNDIwMzYzfQ.nkXZllfe75EyRemmKVYFLdX4eRTlqp-2r-Q2IV9oHjE";
         System.out.println(token);
         System.out.println(getUserIdByToken(token));
-        System.out.println(getUserByToken(token));
+        System.out.println(getUserInfoByToken(token));
 
         Map<String, Claim> claimMap = verifyToken(token);
         System.out.println(getUserByClaimMap(claimMap));

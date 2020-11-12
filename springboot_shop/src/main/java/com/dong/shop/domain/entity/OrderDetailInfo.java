@@ -1,5 +1,6 @@
 package com.dong.shop.domain.entity;
 
+import java.math.BigDecimal;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
@@ -12,7 +13,7 @@ import lombok.experimental.Accessors;
 
 /**
  * <p>
- * 系统用户表
+ * 订单详情表
  * </p>
  *
  * @author caishaodong
@@ -21,8 +22,8 @@ import lombok.experimental.Accessors;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-@TableName("c_sys_user")
-public class SysUser extends Model<SysUser> {
+@TableName("c_order_detail_info")
+public class OrderDetailInfo extends Model<OrderDetailInfo> {
 
     private static final long serialVersionUID = 1L;
 
@@ -30,29 +31,29 @@ public class SysUser extends Model<SysUser> {
     private Long id;
 
     /**
-     * 用户名
+     * 订单id
      */
-    private String username;
+    private Long orderId;
 
     /**
-     * 密码
+     * 商品id
      */
-    private String password;
+    private Long goodsId;
 
     /**
-     * 盐值
+     * 商品单价
      */
-    private String salt;
+    private BigDecimal goodsPrice;
 
     /**
-     * 手机号
+     * 商品数量
      */
-    private String mobile;
+    private Integer goodsNum;
 
     /**
-     * 邮箱
+     * 商品总价
      */
-    private String email;
+    private BigDecimal goodsTotalPrice;
 
     /**
      * 是否删除（0：未删除，1：删除）

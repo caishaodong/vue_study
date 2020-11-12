@@ -12,7 +12,7 @@ import lombok.experimental.Accessors;
 
 /**
  * <p>
- * 系统用户表
+ * 系统菜单表
  * </p>
  *
  * @author caishaodong
@@ -21,8 +21,8 @@ import lombok.experimental.Accessors;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-@TableName("c_sys_user")
-public class SysUser extends Model<SysUser> {
+@TableName("c_sys_menu")
+public class SysMenu extends Model<SysMenu> {
 
     private static final long serialVersionUID = 1L;
 
@@ -30,29 +30,39 @@ public class SysUser extends Model<SysUser> {
     private Long id;
 
     /**
-     * 用户名
+     * 菜单名称
      */
-    private String username;
+    private String menuName;
 
     /**
-     * 密码
+     * 地址
      */
-    private String password;
+    private String path;
 
     /**
-     * 盐值
+     * 父菜单id
      */
-    private String salt;
+    private Long pid;
 
     /**
-     * 手机号
+     * 类型（1：菜单，2：按钮）
      */
-    private String mobile;
+    private Boolean menuType;
 
     /**
-     * 邮箱
+     * 级别（1：一级，2：二级，3：三级）
      */
-    private String email;
+    private Boolean level;
+
+    /**
+     * 排序
+     */
+    private Integer sort;
+
+    /**
+     * 是否启用（0：禁用，1：启用）
+     */
+    private Boolean isEnable;
 
     /**
      * 是否删除（0：未删除，1：删除）

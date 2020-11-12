@@ -12,7 +12,7 @@ import lombok.experimental.Accessors;
 
 /**
  * <p>
- * 系统用户表
+ * 商品类目表
  * </p>
  *
  * @author caishaodong
@@ -21,8 +21,8 @@ import lombok.experimental.Accessors;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-@TableName("c_sys_user")
-public class SysUser extends Model<SysUser> {
+@TableName("c_goods_cate")
+public class GoodsCate extends Model<GoodsCate> {
 
     private static final long serialVersionUID = 1L;
 
@@ -30,29 +30,24 @@ public class SysUser extends Model<SysUser> {
     private Long id;
 
     /**
-     * 用户名
+     * 类目名称
      */
-    private String username;
+    private String cateName;
 
     /**
-     * 密码
+     * 级别（1：一级，2：二级，3：三级）
      */
-    private String password;
+    private Boolean cateLevel;
 
     /**
-     * 盐值
+     * 父类目id
      */
-    private String salt;
+    private Long catePid;
 
     /**
-     * 手机号
+     * 是否启用（0：不启用，1：启用）
      */
-    private String mobile;
-
-    /**
-     * 邮箱
-     */
-    private String email;
+    private Boolean isEnable;
 
     /**
      * 是否删除（0：未删除，1：删除）

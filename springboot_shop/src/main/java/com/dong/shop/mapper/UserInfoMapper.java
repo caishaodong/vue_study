@@ -1,6 +1,6 @@
 package com.dong.shop.mapper;
 
-import com.dong.shop.domain.entity.User;
+import com.dong.shop.domain.entity.UserInfo;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**
@@ -9,8 +9,8 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * </p>
  *
  * @author caishaodong
- * @since 2020-11-10
+ * @since 2020-11-12
  */
-public interface UserMapper extends BaseMapper<User> {
+public interface UserInfoMapper extends BaseMapper<UserInfo> {
 
 }

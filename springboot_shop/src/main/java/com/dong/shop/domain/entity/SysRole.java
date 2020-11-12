@@ -12,7 +12,7 @@ import lombok.experimental.Accessors;
 
 /**
  * <p>
- * 系统用户表
+ * 系统用户角色表
  * </p>
  *
  * @author caishaodong
@@ -21,8 +21,8 @@ import lombok.experimental.Accessors;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-@TableName("c_sys_user")
-public class SysUser extends Model<SysUser> {
+@TableName("c_sys_role")
+public class SysRole extends Model<SysRole> {
 
     private static final long serialVersionUID = 1L;
 
@@ -30,29 +30,14 @@ public class SysUser extends Model<SysUser> {
     private Long id;
 
     /**
-     * 用户名
+     * 角色名称
      */
-    private String username;
+    private String roleName;
 
     /**
-     * 密码
+     * 角色备注
      */
-    private String password;
-
-    /**
-     * 盐值
-     */
-    private String salt;
-
-    /**
-     * 手机号
-     */
-    private String mobile;
-
-    /**
-     * 邮箱
-     */
-    private String email;
+    private String remark;
 
     /**
      * 是否删除（0：未删除，1：删除）

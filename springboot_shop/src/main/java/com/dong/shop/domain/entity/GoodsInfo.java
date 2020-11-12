@@ -1,5 +1,6 @@
 package com.dong.shop.domain.entity;
 
+import java.math.BigDecimal;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
@@ -12,7 +13,7 @@ import lombok.experimental.Accessors;
 
 /**
  * <p>
- * 系统用户表
+ * 商品表
  * </p>
  *
  * @author caishaodong
@@ -21,8 +22,8 @@ import lombok.experimental.Accessors;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-@TableName("c_sys_user")
-public class SysUser extends Model<SysUser> {
+@TableName("c_goods_info")
+public class GoodsInfo extends Model<GoodsInfo> {
 
     private static final long serialVersionUID = 1L;
 
@@ -30,29 +31,44 @@ public class SysUser extends Model<SysUser> {
     private Long id;
 
     /**
-     * 用户名
+     * 商品名称
      */
-    private String username;
+    private String goodsName;
 
     /**
-     * 密码
+     * 商品价格
      */
-    private String password;
+    private BigDecimal goodsPrice;
 
     /**
-     * 盐值
+     * 商品数量
      */
-    private String salt;
+    private Integer goodsNumber;
 
     /**
-     * 手机号
+     * 商品单位
      */
-    private String mobile;
+    private String goodsUnit;
 
     /**
-     * 邮箱
+     * 商品重量
      */
-    private String email;
+    private BigDecimal goodsWeight;
+
+    /**
+     * 商品状态（0：未通过，1：审核中，2：上架，3：下架）
+     */
+    private Boolean goodsState;
+
+    /**
+     * 是否是热销品（0：否，1：是）
+     */
+    private Boolean isPromote;
+
+    /**
+     * 上传的图片临时路径
+     */
+    private String pics;
 
     /**
      * 是否删除（0：未删除，1：删除）

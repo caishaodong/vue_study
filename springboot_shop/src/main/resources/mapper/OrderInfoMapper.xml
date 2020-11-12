@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dong.shop.mapper.OrderInfoMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.dong.shop.domain.entity.OrderInfo">
+        <id column="id" property="id" />
+        <result column="user_id" property="userId" />
+        <result column="receive_name" property="receiveName" />
+        <result column="receive_mobile" property="receiveMobile" />
+        <result column="receive_address" property="receiveAddress" />
+        <result column="order_no" property="orderNo" />
+        <result column="order_price" property="orderPrice" />
+        <result column="order_pay" property="orderPay" />
+        <result column="pay_status" property="payStatus" />
+        <result column="is_send" property="isSend" />
+        <result column="trade_no" property="tradeNo" />
+        <result column="fapiao_title" property="fapiaoTitle" />
+        <result column="fapiao_company" property="fapiaoCompany" />
+        <result column="fapiao_content" property="fapiaoContent" />
+        <result column="is_deleted" property="isDeleted" />
+        <result column="gmt_create" property="gmtCreate" />
+        <result column="gmt_modified" property="gmtModified" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, user_id, receive_name, receive_mobile, receive_address, order_no, order_price, order_pay, pay_status, is_send, trade_no, fapiao_title, fapiao_company, fapiao_content, is_deleted, gmt_create, gmt_modified
+    </sql>
+
+</mapper>

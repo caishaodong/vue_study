@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dong.shop.mapper.GoodsInfoMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.dong.shop.domain.entity.GoodsInfo">
+        <id column="id" property="id" />
+        <result column="goods_name" property="goodsName" />
+        <result column="goods_price" property="goodsPrice" />
+        <result column="goods_number" property="goodsNumber" />
+        <result column="goods_unit" property="goodsUnit" />
+        <result column="goods_weight" property="goodsWeight" />
+        <result column="goods_state" property="goodsState" />
+        <result column="is_promote" property="isPromote" />
+        <result column="pics" property="pics" />
+        <result column="is_deleted" property="isDeleted" />
+        <result column="gmt_create" property="gmtCreate" />
+        <result column="gmt_modified" property="gmtModified" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, goods_name, goods_price, goods_number, goods_unit, goods_weight, goods_state, is_promote, pics, is_deleted, gmt_create, gmt_modified
+    </sql>
+
+</mapper>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dong.shop.mapper.GoodsAttrMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.dong.shop.domain.entity.GoodsAttr">
+        <id column="id" property="id" />
+        <result column="cate_id" property="cateId" />
+        <result column="attr_name" property="attrName" />
+        <result column="attr_sel" property="attrSel" />
+        <result column="attr_write" property="attrWrite" />
+        <result column="attr_vals" property="attrVals" />
+        <result column="is_deleted" property="isDeleted" />
+        <result column="gmt_create" property="gmtCreate" />
+        <result column="gmt_modified" property="gmtModified" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, cate_id, attr_name, attr_sel, attr_write, attr_vals, is_deleted, gmt_create, gmt_modified
+    </sql>
+
+</mapper>

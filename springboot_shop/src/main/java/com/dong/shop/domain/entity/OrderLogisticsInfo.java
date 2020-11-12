@@ -12,7 +12,7 @@ import lombok.experimental.Accessors;
 
 /**
  * <p>
- * 系统用户表
+ * 订单物流信息表
  * </p>
  *
  * @author caishaodong
@@ -21,8 +21,8 @@ import lombok.experimental.Accessors;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-@TableName("c_sys_user")
-public class SysUser extends Model<SysUser> {
+@TableName("c_order_logistics_info")
+public class OrderLogisticsInfo extends Model<OrderLogisticsInfo> {
 
     private static final long serialVersionUID = 1L;
 
@@ -30,29 +30,19 @@ public class SysUser extends Model<SysUser> {
     private Long id;
 
     /**
-     * 用户名
+     * 订单id
      */
-    private String username;
+    private Long orderId;
 
     /**
-     * 密码
+     * 物流内容描述
      */
-    private String password;
+    private String context;
 
     /**
-     * 盐值
+     * 地址
      */
-    private String salt;
-
-    /**
-     * 手机号
-     */
-    private String mobile;
-
-    /**
-     * 邮箱
-     */
-    private String email;
+    private String location;
 
     /**
      * 是否删除（0：未删除，1：删除）

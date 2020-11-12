@@ -12,7 +12,7 @@ import lombok.experimental.Accessors;
 
 /**
  * <p>
- * 系统用户表
+ * 商品类目参数表
  * </p>
  *
  * @author caishaodong
@@ -21,8 +21,8 @@ import lombok.experimental.Accessors;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-@TableName("c_sys_user")
-public class SysUser extends Model<SysUser> {
+@TableName("c_goods_attr")
+public class GoodsAttr extends Model<GoodsAttr> {
 
     private static final long serialVersionUID = 1L;
 
@@ -30,29 +30,29 @@ public class SysUser extends Model<SysUser> {
     private Long id;
 
     /**
-     * 用户名
+     * 类目参数所属类目id
      */
-    private String username;
+    private Long cateId;
 
     /**
-     * 密码
+     * 类目参数名称
      */
-    private String password;
+    private String attrName;
 
     /**
-     * 盐值
+     * only：输入框(唯一)，many：后台下拉列表/前台单选框
      */
-    private String salt;
+    private String attrSel;
 
     /**
-     * 手机号
+     * manual:手工录入，list:从列表选择
      */
-    private String mobile;
+    private String attrWrite;
 
     /**
-     * 邮箱
+     * 如果 attr_write为list,那么有值，该值以逗号分隔
      */
-    private String email;
+    private String attrVals;
 
     /**
      * 是否删除（0：未删除，1：删除）

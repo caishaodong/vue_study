@@ -11,7 +11,7 @@
  Target Server Version : 50731
  File Encoding         : 65001
 
- Date: 12/11/2020 16:24:47
+ Date: 12/11/2020 16:57:23
 */
 
 SET NAMES utf8mb4;
@@ -261,5 +261,25 @@ CREATE TABLE `c_user_address`  (
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `idx_user_id`(`user_id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '用户收货地址表' ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Table structure for c_user_info
+-- ----------------------------
+DROP TABLE IF EXISTS `c_user_info`;
+CREATE TABLE `c_user_info`  (
+  `id` bigint(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `username` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '' COMMENT '用户名',
+  `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '' COMMENT '密码',
+  `salt` varchar(8) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '' COMMENT '盐值',
+  `mobile` varchar(16) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '' COMMENT '手机号',
+  `sex` tinyint(1) NOT NULL DEFAULT 0 COMMENT '性别（0：未知，1：男，2：女）',
+  `status` tinyint(1) NOT NULL DEFAULT 1 COMMENT '状态（1：正常，2：冻结，3：注销）',
+  `is_deleted` tinyint(1) UNSIGNED NOT NULL DEFAULT 0 COMMENT '是否删除（0：未删除，1：删除）',
+  `gmt_create` datetime(0) NOT NULL DEFAULT CURRENT_TIMESTAMP(0) COMMENT '创建时间',
+  `gmt_modified` datetime(0) NOT NULL DEFAULT CURRENT_TIMESTAMP(0) COMMENT '修改时间',
+  PRIMARY KEY (`id`) USING BTREE,
+  INDEX `idx_username`(`username`) USING BTREE,
+  INDEX `idx_mobile`(`mobile`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '用户表' ROW_FORMAT = Compact;
 
 SET FOREIGN_KEY_CHECKS = 1;
