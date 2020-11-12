@@ -1,7 +1,9 @@
 package com.dong.shop.service;
 
-import com.dong.shop.domain.entity.SysUser;
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.dong.shop.domain.entity.SysUser;
+import com.dong.shop.domain.entity.dto.SysUserSearchDTO;
 
 /**
  * <p>
@@ -13,4 +15,11 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface SysUserService extends IService<SysUser> {
 
+    /**
+     * 获取用户列表（分页）
+     *
+     * @param dto
+     * @return
+     */
+    IPage<SysUser> pageList(SysUserSearchDTO dto);
 }
