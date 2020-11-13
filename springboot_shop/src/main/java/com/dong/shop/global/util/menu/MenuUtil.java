@@ -23,10 +23,10 @@ public class MenuUtil {
      * 复制list
      *
      * @param sysMenuList
-     * @param SysMenuVoList
+     * @param sysMenuVoList
      */
-    public static void copyList(List<SysMenu> sysMenuList, List<SysMenuVo> SysMenuVoList) {
-        SysMenuVoList = Objects.isNull(SysMenuVoList) ? new ArrayList<>() : SysMenuVoList;
+    public static void copyList(List<SysMenu> sysMenuList, List<SysMenuVo> sysMenuVoList) {
+        sysMenuVoList = Objects.isNull(sysMenuVoList) ? new ArrayList<>() : sysMenuVoList;
         if (CollectionUtils.isEmpty(sysMenuList)) {
             return;
         }
@@ -34,7 +34,7 @@ public class MenuUtil {
             SysMenuVo SysMenuVo = new SysMenuVo();
             BeanUtils.copyProperties(sysMenu, SysMenuVo);
             SysMenuVo.setChildren(new ArrayList<SysMenuVo>());
-            SysMenuVoList.add(SysMenuVo);
+            sysMenuVoList.add(SysMenuVo);
         }
         return;
     }
