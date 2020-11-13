@@ -62,7 +62,7 @@ public class LoginAspect implements InitializingBean {
      * @return
      */
     public Long getUserId(HttpServletRequest request) {
-        return getUserIdFromSession(request);
+        return getUserIdFromRequestHeader(request);
     }
 
     /**

@@ -55,9 +55,14 @@ public class SysUser extends Model<SysUser> {
     private String email;
 
     /**
+     * 状态（1：正常，2：冻结，3：注销）
+     */
+    private Integer status;
+
+    /**
      * 是否删除（0：未删除，1：删除）
      */
-    private Boolean isDeleted;
+    private Integer isDeleted;
 
     /**
      * 创建时间

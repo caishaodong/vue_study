@@ -1,7 +1,11 @@
 package com.dong.shop.mapper;
 
-import com.dong.shop.domain.entity.SysUser;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.dong.shop.domain.entity.SysUser;
+import com.dong.shop.domain.entity.dto.SysUserSearchDTO;
+import com.dong.shop.domain.entity.vo.SysUserVo;
+import com.dong.shop.global.util.page.PageUtil;
+import org.apache.ibatis.annotations.Param;
 
 /**
  * <p>
@@ -13,4 +17,20 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  */
 public interface SysUserMapper extends BaseMapper<SysUser> {
 
+    /**
+     * 获取用户列表（分页）
+     *
+     * @param dto
+     * @return
+     */
+    PageUtil<SysUserVo> pageList(SysUserSearchDTO dto);
+
+    /**
+     * 根据用户id获取用户信息
+     *
+     * @param sysUserid
+     * @return
+     */
+    SysUserVo selectSysUserById(@Param("sysUserid") Long sysUserid);
 }
+

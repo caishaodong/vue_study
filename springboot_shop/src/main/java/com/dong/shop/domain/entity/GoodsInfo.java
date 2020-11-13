@@ -58,12 +58,12 @@ public class GoodsInfo extends Model<GoodsInfo> {
     /**
      * 商品状态（0：未通过，1：审核中，2：上架，3：下架）
      */
-    private Boolean goodsState;
+    private Integer goodsState;
 
     /**
      * 是否是热销品（0：否，1：是）
      */
-    private Boolean isPromote;
+    private Integer isPromote;
 
     /**
      * 上传的图片临时路径
@@ -73,7 +73,7 @@ public class GoodsInfo extends Model<GoodsInfo> {
     /**
      * 是否删除（0：未删除，1：删除）
      */
-    private Boolean isDeleted;
+    private Integer isDeleted;
 
     /**
      * 创建时间

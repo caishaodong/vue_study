@@ -63,17 +63,17 @@ public class OrderInfo extends Model<OrderInfo> {
     /**
      * 支付方式( 0：未支付，1：支付宝，2：微信，3：银行卡）
      */
-    private Boolean orderPay;
+    private Integer orderPay;
 
     /**
      * 支付状态（0：未支付，1：已支付）
      */
-    private Boolean payStatus;
+    private Integer payStatus;
 
     /**
      * 是否发货（0：未发货，1：已发货）
      */
-    private Boolean isSend;
+    private Integer isSend;
 
     /**
      * 交易编号
@@ -98,7 +98,7 @@ public class OrderInfo extends Model<OrderInfo> {
     /**
      * 是否删除（0：未删除，1：删除）
      */
-    private Boolean isDeleted;
+    private Integer isDeleted;
 
     /**
      * 创建时间

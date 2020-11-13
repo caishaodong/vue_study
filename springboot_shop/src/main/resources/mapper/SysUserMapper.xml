@@ -10,6 +10,7 @@
         <result column="salt" property="salt" />
         <result column="mobile" property="mobile" />
         <result column="email" property="email" />
+        <result column="status" property="status" />
         <result column="is_deleted" property="isDeleted" />
         <result column="gmt_create" property="gmtCreate" />
         <result column="gmt_modified" property="gmtModified" />
@@ -17,7 +18,24 @@
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        id, username, password, salt, mobile, email, is_deleted, gmt_create, gmt_modified
+        id, username, password, salt, mobile, email, status, is_deleted, gmt_create, gmt_modified
     </sql>
+
+    <select id="pageList" resultType="com.dong.shop.domain.entity.vo.SysUserVo">
+        SELECT u.id, u.username, u.mobile, u.email, u.gmt_create, u.status, u.is_deleted, r.role_name
+        FROM c_sys_user u
+        LEFT JOIN c_sys_user_role_rel ur ON u.id = ur.sys_user_id
+        LEFT JOIN c_sys_role r ON ur.sys_role_id = r.id
+        WHERE u.is_deleted = 0
+        ORDER BY u.gmt_create DESC
+    </select>
+
+    <select id="selectSysUserById" resultType="com.dong.shop.domain.entity.vo.SysUserVo">
+        SELECT u.id, u.username, u.mobile, u.email, u.gmt_create, u.status, u.is_deleted, r.role_name
+        FROM c_sys_user u
+        LEFT JOIN c_sys_user_role_rel ur ON u.id = ur.sys_user_id
+        LEFT JOIN c_sys_role r ON ur.sys_role_id = r.id
+        WHERE u.is_deleted = 0 AND u.id = #{sysUserid}
+    </select>
 
 </mapper>

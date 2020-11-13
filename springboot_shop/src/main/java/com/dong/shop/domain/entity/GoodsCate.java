@@ -37,7 +37,7 @@ public class GoodsCate extends Model<GoodsCate> {
     /**
      * 级别（1：一级，2：二级，3：三级）
      */
-    private Boolean cateLevel;
+    private Integer cateLevel;
 
     /**
      * 父类目id
@@ -47,12 +47,12 @@ public class GoodsCate extends Model<GoodsCate> {
     /**
      * 是否启用（0：不启用，1：启用）
      */
-    private Boolean isEnable;
+    private Integer isEnable;
 
     /**
      * 是否删除（0：未删除，1：删除）
      */
-    private Boolean isDeleted;
+    private Integer isDeleted;
 
     /**
      * 创建时间

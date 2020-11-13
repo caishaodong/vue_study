@@ -52,17 +52,17 @@ public class UserInfo extends Model<UserInfo> {
     /**
      * 性别（0：未知，1：男，2：女）
      */
-    private Boolean sex;
+    private Integer sex;
 
     /**
      * 状态（1：正常，2：冻结，3：注销）
      */
-    private Boolean status;
+    private Integer status;
 
     /**
      * 是否删除（0：未删除，1：删除）
      */
-    private Boolean isDeleted;
+    private Integer isDeleted;
 
     /**
      * 创建时间
